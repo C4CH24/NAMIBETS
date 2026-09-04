@@ -1,0 +1,206 @@
+:root {
+  font-family: Inter, 'Segoe UI', sans-serif;
+  color: #edf6ff;
+  background: linear-gradient(180deg, #061524 0%, #0a1d2d 52%, #07131d 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg-soft: rgba(14, 34, 52, 0.9);
+  --panel: rgba(10, 19, 31, 0.88);
+  --panel-alt: rgba(16, 30, 43, 0.94);
+  --blue: #5bc0ff;
+  --blue-strong: #1a8cff;
+  --cyan: #7ef9ff;
+  --muted: #99b4cc;
+  --border: rgba(130, 182, 255, 0.2);
+  --success: #7ef7b2;
+  --warning: #ffca6e;
+  --shadow: 0 20px 60px rgba(9, 17, 25, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(40, 111, 255, 0.2), transparent 25%),
+    linear-gradient(180deg, #061524 0%, #0a1d2d 52%, #07131d 100%);
+}
+
+.market-list {
+  display: grid;
+  gap: 16px;
+  padding: 20px 0;
+}
+.market-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  text-align: left;
+  width: 100%;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.market-item:hover {
+  transform: translateY(-3px);
+}
+
+.market-item.selected {
+  background: linear-gradient(135deg, rgba(90,200,255,0.06), rgba(30,140,255,0.04));
+  border-color: rgba(94,208,255,0.45);
+}
+
+.market-item-title {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+}
+
+.market-item p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.86rem;
+}
+.hero {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 40px 24px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 820px;
+}
+
+.hero-copy p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.hero-panel {
+  min-width: 320px;
+}
+
+/* Header / topbar styles */
+header.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(9,18,28,0.6), rgba(9,18,28,0.4));
+}
+
+.brand-wrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--blue-strong));
+  font-weight: 700;
+  color: #07131d;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Dashboard stats grid and card components */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  background: var(--panel-alt);
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.stat-card strong {
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+
+/* Layout fixes to ensure bottom-half content is visible and grids don't collapse */
+main,
+.content-wrapper {
+  display: block;
+  width: 100%;
+  min-height: min-content;
+}
+
+.stat-grid {
+  /* ensure grid reserves visible space when items render asynchronously */
+  min-height: 100px;
+  overflow: visible;
+}
+
+.market-item {
+  /* guard against collapsed cards when data is loading */
+  min-height: 80px;
+}
+
+/* (kept earlier consolidated market styles) */
+

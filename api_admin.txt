@@ -1,0 +1,11 @@
+HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 38
+ETag: W/"26-NXlnkROJe49AC3G2mRgYEte4Iks"
+Date: Tue, 01 Sep 2026 13:47:12 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Authentication required."}
