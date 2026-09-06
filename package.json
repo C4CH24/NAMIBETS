@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:api": "dotnet run --project api/Namibets.Api.csproj --urls http://localhost:5000",
     "dev:client": "npm --prefix client run dev",
     "dev:server": "npm --prefix server run dev",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:api": "dotnet run --project api/Namibets.Api.csproj"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
